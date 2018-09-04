@@ -1,2 +1,17 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h1 class="text-center m-4">Lista de Tareas</h1>
+<div class="container">
+  <div class="row">
+      <% @tasks.each_slice(3) do |row| %>
+        <% row.each do |task| %>
+          <div class="card mx-auto m-4" style="width: 18rem;">
+            <%= image_tag task.photo, class: 'card-img-top' %>
+            <div class="card-body">
+              <h5 class="card-title"><%= task.name %></h5>
+              <p class="card-text"><%= task.detail %></p>
+              <a href="#" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-print"></span>Listo</a>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>
