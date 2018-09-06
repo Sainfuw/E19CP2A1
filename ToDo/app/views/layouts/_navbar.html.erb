@@ -7,7 +7,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#"></a>
+        <% if user_signed_in? %>
+          <span class="nav-link">Tareas completadas <%= task_completed %>/6</span>
+        <% end %>
       </li>
     </ul>
     <ul class="navbar-nav">

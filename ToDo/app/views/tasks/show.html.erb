@@ -1,2 +1,9 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<h1 class="text-center m-4"><%= @task.name %></h1>
+<p class="text-center m-4"><%= @task.detail %></p>
+<div class="container">
+  <div class="row">
+      <% @users.each do |user| %>
+        <%= user.email %>
+      <% end %>
+  </div>
+</div>
