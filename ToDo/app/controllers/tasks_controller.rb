@@ -7,11 +7,8 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    @users = []
-    @task.usertasks.each do |ut|
-      if ut.completed
-        @users << ut.user
-      end
-    end
+    @users = @task.usertasks.where(completed: true).map { |ut| User.find(ut.user_id) }
+    @trophy_size = 70;
+    @colors = ['#FFD700', '#B9F2FF', '#DAA520', '#C0C0C0', '#CD7F32']
   end
 end

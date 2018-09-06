@@ -1,9 +1,38 @@
-<h1 class="text-center m-4"><%= @task.name %></h1>
-<p class="text-center m-4"><%= @task.detail %></p>
-<div class="container">
-  <div class="row">
-      <% @users.each do |user| %>
-        <%= user.email %>
-      <% end %>
-  </div>
-</div>
+<div class="container"> 
+	<div class="row">
+		<div class="col-10 mx-auto">
+			<h1 class="text-center mb-5">Personas que completaron la tarea: <%= @task.name %></h1> 
+      <p class="text-center m-5"><%= @task.detail %></p>
+			<table class="table table-bordered">
+			<thead>
+			<tr>
+        <th class="text-center" style="width: 50px">#</th>
+				<th>Nombre:</th>
+				<th colspan="1">Correo:</th>
+			</tr>
+			</thead>
+			<tbody>
+
+			<% @users.each_with_index do |user, i| %>
+				<tr>
+          <td class="text-center align-middle">
+            <% if @trophy_size > 20 %>
+              <i class="fa fa-trophy" aria-hidden="true" style="font-size: <%= @trophy_size %>px; color:<%= @colors[i] %>"></i>
+              <% @trophy_size -= 10 %>
+            <% else %>
+              <%= i + 1 %>
+            <% end %>
+          </td>
+					<td><%= user.username %></td>
+					<td>
+            <%= user.email %>
+            <% if i < 5 %>
+              <%= image_tag user.photo, class: 'img-responsive float-right', style: 'max-width: 60px' %>
+            <% end %>
+          </td>
+				</tr>
+			<% end %>
+			</tbody>
+			</table>
+		</div>
+	</div>

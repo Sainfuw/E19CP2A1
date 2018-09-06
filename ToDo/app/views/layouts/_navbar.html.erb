@@ -6,9 +6,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li>
         <% if user_signed_in? %>
-          <span class="nav-link">Tareas completadas <%= task_completed %>/6</span>
+          <a href="<%= root_path %>" class="nav-link" style="color: white">Tareas completadas <%= task_completed %>/6</a>
         <% end %>
       </li>
     </ul>
@@ -16,7 +16,8 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if user_signed_in? %>
-            <%= current_user.email %>
+            <span class="align-top"><%= current_user.email %></span>
+            <i class="fa fa-user-o" aria-hidden="true" style="font-size: 25px"></i>
           <% else %>
             Ingreso / Registro
           <% end %>
