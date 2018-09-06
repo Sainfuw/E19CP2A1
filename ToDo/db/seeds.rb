@@ -60,3 +60,13 @@ Task.create(
     password: "123456"
   )
 end
+
+3.times do |task|
+  10.times do |user|
+    Usertask.create(
+      user_id: (user+1),
+      task_id: (task+1),
+      completed: true
+    )
+  end
+end

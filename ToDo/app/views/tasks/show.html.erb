@@ -8,7 +8,8 @@
 			<tr>
         <th class="text-center" style="width: 50px">#</th>
 				<th>Nombre:</th>
-				<th colspan="1">Correo:</th>
+				<th>Correo:</th>
+        <th></th>
 			</tr>
 			</thead>
 			<tbody>
@@ -23,9 +24,9 @@
               <%= i + 1 %>
             <% end %>
           </td>
-					<td><%= user.username %></td>
-					<td>
-            <%= user.email %>
+					<td class="align-middle"><%= user.username %></td>
+					<td class="align-middle"><%= user.email %></td>
+          <td style="width:80px">
             <% if i < 5 %>
               <%= image_tag user.photo, class: 'img-responsive float-right', style: 'max-width: 60px' %>
             <% end %>
