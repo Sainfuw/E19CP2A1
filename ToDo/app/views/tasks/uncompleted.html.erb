@@ -1,0 +1,21 @@
+<h1 class="text-center m-4">Lista de Tareas</h1>
+<div class="container">
+  <div class="row">
+      <% @tasks.each_slice(3) do |row| %>
+        <% row.each do |task| %>
+          <div class="card mx-auto m-4" style="width: 18rem;">
+            <a href="<%= task_path(task) %>"><%= image_tag task.photo, class: 'card-img-top' %></a>
+            <div class="card-body">
+              <h5 class="card-title"><%= task.name %></h5>
+              <p class="card-text"><%= task.detail %></p>
+              <% if user_check(task).nil? %>
+                <a href="<%= task_usertasks_path(task) %>" data-method="POST" class="btn btn-danger btn-block">No esta Lista</a>
+              <% else %>
+                <a href="<%= task_usertasks_path(task) %>" data-method="POST" class="btn btn-success btn-block">Listo</a>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
       }
   resources :tasks, only: [:index, :show] do
     resources :usertasks, only: :create
+    collection do
+      get :completed
+      get :uncompleted
+    end
   end
   root 'tasks#index'
 end
