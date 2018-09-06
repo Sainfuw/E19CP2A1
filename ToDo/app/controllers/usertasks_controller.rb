@@ -6,10 +6,10 @@ class UsertasksController < ApplicationController
       @ut = Usertask.new
       @ut.user_id = current_user.id
       @ut.task_id = @task.id
+      @ut.save
     elsif
-      @ut.completed = !@ut.completed
+      @ut.destroy
     end
-    @ut.save
     redirect_to tasks_path, notice: 'Tarea cambiada satisfactoriamente.'
   end
 end

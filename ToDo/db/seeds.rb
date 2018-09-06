@@ -65,8 +65,7 @@ end
   10.times do |user|
     Usertask.create(
       user_id: (user+1),
-      task_id: (task+1),
-      completed: true
+      task_id: (task+1)
     )
   end
 end

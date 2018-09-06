@@ -8,7 +8,7 @@
             <div class="card-body">
               <h5 class="card-title"><%= task.name %></h5>
               <p class="card-text"><%= task.detail %></p>
-              <% if user_check(task).nil? || !user_check(task).completed %>
+              <% if user_check(task).nil? %>
                 <a href="<%= task_usertasks_path(task) %>" data-method="POST" class="btn btn-danger btn-block">No esta Lista</a>
               <% else %>
                 <a href="<%= task_usertasks_path(task) %>" data-method="POST" class="btn btn-success btn-block">Listo</a>

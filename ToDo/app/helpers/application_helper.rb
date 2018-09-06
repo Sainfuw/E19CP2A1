@@ -3,6 +3,6 @@ module ApplicationHelper
     Usertask.find_by(["user_id = ? and task_id = ?", current_user.id, task.id])
   end
   def task_completed
-    current_user.usertasks.select { |ut| ut.completed }.count
+    current_user.usertasks.count
   end
 end
